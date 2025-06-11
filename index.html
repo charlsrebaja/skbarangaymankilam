@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Barangay Mankilam</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="assets/images/logo1.png">
+    <link rel="preload" as="image" href="assets/images/hero-bg.jpg">
+    <link rel="icon" type="image/png" href="assets/images/logo1.png" sizes="40x40">
+
+    <!-- Optimize CSS loading -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/custom.css" media="print" onload="this.media='all'">
+
+    <!-- Critical CSS inline -->
+    <style>
+        /* Add your critical CSS here */
+        .custom-offcanvas {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            max-width: 85vw;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -2px 0 16px rgba(0, 0, 0, 0.08);
+            z-index: 1051;
+            transition: right 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-offcanvas.show {
+            right: 0;
+        }
+
+        .offcanvas-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1050;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .offcanvas-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .custom-offcanvas .close-offcanvas {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #04305d;
+            z-index: 2;
+        }
+
+        @media (min-width: 992px) {
+            .custom-offcanvas,
+            .offcanvas-overlay {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(4, 48, 93)">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo1.png" alt="Logo" width="50" height="50" class="d-inline-block">
+                BARANGAY MANKILAM
+            </a>
+            <button class="navbar-toggler" type="button" id="customNavbarToggler" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="officials.html">Officials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accomplishment.html">Accomplishment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Access</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas for mobile -->
+    <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+    <nav class="custom-offcanvas" id="customOffcanvas" tabindex="-1" aria-label="Mobile menu">
+        <button class="close-offcanvas" id="closeOffcanvas" aria-label="Close menu">&times;</button>
+        <ul class="navbar-nav mt-4">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="officials.html">Officials</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="accomplishment.html">Accomplishment</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Access</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        // Offcanvas navbar logic
+        const toggler = document.getElementById("customNavbarToggler");
+        const offcanvas = document.getElementById("customOffcanvas");
+        const overlay = document.getElementById("offcanvasOverlay");
+        const closeBtn = document.getElementById("closeOffcanvas");
+
+        function openOffcanvas() {
+            offcanvas.classList.add("show");
+            overlay.classList.add("show");
+            document.body.style.overflow = "hidden";
+            offcanvas.focus();
+        }
+
+        function closeOffcanvas() {
+            offcanvas.classList.remove("show");
+            overlay.classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+        toggler.addEventListener("click", openOffcanvas);
+        closeBtn.addEventListener("click", closeOffcanvas);
+        overlay.addEventListener("click", closeOffcanvas);
+
+        // Close on ESC
+        offcanvas.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") closeOffcanvas();
+        });
+    </script>
+
+    <!-- Hero Section with optimized Swiper Slider -->
+    <header class="text-center text-white bg-dark position-relative" style="padding: 0; height: 500px">
+        <div class="swiper hero-swiper" style="height: 100%">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="assets/images/hero-bg.jpg" alt="Slide 1" loading="eager" style="width: 100%; height: 100%; object-fit: cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero-bg1.jpg" alt="Slide 2" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/hero-bg2.jpg" alt="Slide 3" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper with performance optimizations
+            const swiper = new Swiper(".hero-swiper", {
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                // Performance optimizations
+                preloadImages: false,
+                lazy: true,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true,
+            });
+        });
+    </script>
+    
+    <!-- Replace the entire About Section with the following code -->
+    <section id="about" class="py-5 bg-light">
+    <br>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold" style="color: #04305d;">The 10 Centers of Youth Participation</h2>
+            <div class="section-divider mx-auto mb-3" style="width: 80px; height: 4px; background: #04305d; border-radius: 2px;"></div>
+            <p class="lead" style="color: #333; max-width: 600px; margin: 0 auto;">
+                The Sangguniang Kabataan of Brgy Mankilam guides youth programs, projects, and activities through these centers to address key issues and empower the next generation for a brighter future.
+            </p>
+        </div>
+        <div class="position-relative">
+            <!-- Slides Wrapper -->
+            <div id="youthCentersSlides">
+                <!-- Slide 1 -->
+                <div class="youth-slide active row g-4 justify-content-center">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #FF6B6B;"><i class="fas fa-heartbeat"></i></div>
+                            <h5 class="fw-bold mb-2">Health</h5>
+                            <p class="small text-muted">Promoting physical, mental, and social well-being through accessible health services and programs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #4ECDC4;"><i class="fas fa-graduation-cap"></i></div>
+                            <h5 class="fw-bold mb-2">Education</h5>
+                            <p class="small text-muted">Ensuring access to quality education and lifelong learning for youth development.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #45B7D1;"><i class="fas fa-chart-line"></i></div>
+                            <h5 class="fw-bold mb-2">Economic Empowerment</h5>
+                            <p class="small text-muted">Supporting youth entrepreneurship, employment, and financial literacy for sustainable livelihoods.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #FFBE0B;"><i class="fas fa-users"></i></div>
+                            <h5 class="fw-bold mb-2">Social Inclusion & Equity</h5>
+                            <p class="small text-muted">Promoting equal opportunities, diversity, and inclusion for all youth.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #FB5607;"><i class="fas fa-dove"></i></div>
+                            <h5 class="fw-bold mb-2">Peace Building & Security</h5>
+                            <p class="small text-muted">Encouraging youth participation in peacebuilding, conflict resolution, and community safety.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="youth-slide row g-4 justify-content-center">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #8338EC;"><i class="fas fa-vote-yea"></i></div>
+                            <h5 class="fw-bold mb-2">Active Citizenship</h5>
+                            <p class="small text-muted">Empowering youth to participate in civic engagement and community leadership.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #3A86FF;"><i class="fas fa-leaf"></i></div>
+                            <h5 class="fw-bold mb-2">Environment</h5>
+                            <p class="small text-muted">Engaging youth in environmental protection, climate action, and sustainable practices.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #FF006E;"><i class="fas fa-university"></i></div>
+                            <h5 class="fw-bold mb-2">Governance</h5>
+                            <p class="small text-muted">Promoting youth involvement in governance, transparency, and accountability.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #A8FF7E;"><i class="fas fa-globe"></i></div>
+                            <h5 class="fw-bold mb-2">Global Mobility</h5>
+                            <p class="small text-muted">Encouraging youth participation in global exchanges, travel, and international cooperation.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="youth-card h-100 text-center p-4 shadow-sm bg-white rounded-4">
+                            <div class="youth-icon mb-3" style="background: #FF8C00;"><i class="fas fa-tractor"></i></div>
+                            <h5 class="fw-bold mb-2">Agriculture</h5>
+                            <p class="small text-muted">Promoting youth involvement in agriculture, food security, and rural development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Manual Controls -->
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <button class="btn btn-outline-primary youth-prev px-4 py-2" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn btn-outline-primary youth-next px-4 py-2" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <style>
+        #about .youth-card {
+            transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+            border: 2px solid #e3edf7;
+            background: #fff;
+            cursor: pointer;
+        }
+        #about .youth-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(4,48,93,0.10);
+        }
+        #about .youth-icon {
+            font-size: 2.5rem;
+            color: #fff;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            transition: transform 0.2s;
+        }
+        #about .youth-card:hover .youth-icon {
+            transform: scale(1.1);
+        }
+        #about .youth-slide {
+            display: none;
+            animation: fadeInYouth 0.5s;
+        }
+        #about .youth-slide.active {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        @keyframes fadeInYouth {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: none;}
+        }
+        @media (max-width: 991.98px) {
+            #about .youth-card { min-height: 0; }
+        }
+        @media (max-width: 767.98px) {
+            #about .youth-card { padding: 1.5rem 1rem; }
+            #about .youth-icon { font-size: 2rem; width: 48px; height: 48px; }
+        }
+    </style>
+    <script>
+        // Manual slideshow logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('#youthCentersSlides .youth-slide');
+            const prevBtn = document.querySelector('.youth-prev');
+            const nextBtn = document.querySelector('.youth-next');
+            let current = 0;
+
+            function showSlide(idx) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === idx);
+                });
+            }
+
+            prevBtn.addEventListener('click', function () {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+            });
+
+            nextBtn.addEventListener('click', function () {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            });
+
+            // Optional: swipe support for mobile
+            let startX = null;
+            const slidesWrapper = document.getElementById('youthCentersSlides');
+            slidesWrapper.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            });
+            slidesWrapper.addEventListener('touchend', e => {
+                if (startX === null) return;
+                let endX = e.changedTouches[0].clientX;
+                if (endX - startX > 50) prevBtn.click();
+                else if (startX - endX > 50) nextBtn.click();
+                startX = null;
+            });
+        });
+    </script>
+</section>
+
+
+    <!-- Accomplished Events & Activities Section -->
+    <section class="py-5" style="background: rgb(248, 248, 248)">
+        <div class="container">
+            <div class="row justify-content-center align-items-start">
+                <!-- Events List Card -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="card shadow-lg border-0" style="border-radius: 20px">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4" style="color: rgb(4, 48, 93)">Accomplished Events & Activities</h3>
+                            <ul class="list-group list-group-flush" id="events-list">
+                                <li class="list-group-item list-group-item-action d-flex align-items-center gap-3 event-item active" data-video="assets/videos/nextup-events1.mp4" data-poster="assets/images/news1.jpg" style="cursor: pointer">
+                                    <i class="bi bi-people-fill text-primary fs-4"></i>
+                                    <div>
+                                        <span class="fw-semibold">Mankilam Youth Festival 2024</span><br>
+                                        <span class="badge bg-primary bg-opacity-10 text-primary mt-1">Leadership</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item list-group-item-action d-flex align-items-center gap-3 event-item" data-video="assets/videos/nextup-events2.mp4" data-poster="assets/images/news4.jpg" style="cursor: pointer">
+                                    <i class="bi bi-globe-americas text-success fs-4"></i>
+                                    <div>
+                                        <span class="fw-semibold">Environmental Drive</span><br>
+                                        <span class="badge bg-success bg-opacity-10 text-success mt-1">Environment</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item list-group-item-action d-flex align-items-center gap-3 event-item" data-video="assets/videos/nextup-events3.mp4" data-poster="assets/images/sports-1.jpg" style="cursor: pointer">
+                                    <i class="bi bi-trophy-fill text-warning fs-4"></i>
+                                    <div>
+                                        <span class="fw-semibold">Youth Sportsfest 2024</span><br>
+                                        <span class="badge bg-warning bg-opacity-10 text-warning mt-1">Sports</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item list-group-item-action d-flex align-items-center gap-3 event-item" data-video="assets/videos/nextup-events4.mp4" data-poster="assets/images/scholarhip1.jpg" style="cursor: pointer">
+                                    <i class="bi bi-mortarboard-fill text-dark fs-4"></i>
+                                    <div>
+                                        <span class="fw-semibold">Educational Assistance Program</span><br>
+                                        <span class="badge bg-primary bg-opacity-10 text-primary mt-1">Education</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-4 text-secondary" style="font-size: 1.08rem">
+                                <small class="d-block mt-3">For more info, visit our <a href="https://www.facebook.com/profile.php?id=61553998101858" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-semibold" style="color: #04305d">facebook page</a>.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video Display -->
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9 rounded shadow-lg overflow-hidden">
+                        <video id="event-video" controls poster="assets/images/news1.jpg" class="w-100 h-100" style="object-fit: cover; background: #e3edf7">
+                            <source src="assets/videos/nextup-events1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const eventVideo = document.getElementById("event-video");
+            const eventItems = document.querySelectorAll(".event-item");
+
+            // Pause video when out of view
+            if (eventVideo) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting && !eventVideo.paused) {
+                            eventVideo.pause();
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(eventVideo);
+            }
+
+            // Event switching
+            eventItems.forEach((item) => {
+                item.addEventListener("click", function() {
+                    eventItems.forEach((i) => i.classList.remove("active"));
+                    this.classList.add("active");
+                    const videoSrc = this.getAttribute("data-video");
+                    const poster = this.getAttribute("data-poster");
+                    eventVideo.pause();
+                    eventVideo.setAttribute("poster", poster);
+                    eventVideo.querySelector("source").setAttribute("src", videoSrc);
+                    eventVideo.load();
+                });
+            });
+        });
+    </script>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-2" style="color: rgb(4, 48, 93)">PROJECTS & PROGRAM</h2>
+            <div class="section-divider"></div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm" style="border-radius: 18px">
+                        <img src="assets/images/scholarhip1.jpg" class="card-img-top project-img" alt="Scholarship Program">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-mortarboard text-primary"></i> Scholarship Program</h5>
+                            <p class="card-text">Educational assistance for deserving youth. Apply at the barangay hall for requirements and screening.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm" style="border-radius: 18px">
+                        <img src="assets/images/leadershiptraining-1.jpg" class="card-img-top project-img" alt="Leadership Training">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-person-badge text-info"></i> Leadership Training</h5>
+                            <p class="card-text">Empowering future youth leaders with essential skills and values. Join our workshops and seminars for personal and community growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm" style="border-radius: 18px">
+                        <img src="assets/images/sports-1.jpg" class="card-img-top project-img" alt="Youth Sports Festival">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-trophy text-warning"></i> Youth Sports Festival</h5>
+                            <p class="card-text">Annual inter-purok competitions that promote fitness, teamwork, and camaraderie among the youth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="projects.html" class="btn px-4 py-2 fw-semibold" style="border-radius: 24px; background-color: rgb(4, 48, 93); color: white;">View All</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Binibining Brgy. Mankilam 2024 Section -->
+    <section id="binibining-mankilam-2024" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4" style="color: rgb(4, 48, 93)">BINIBINING BRGY. MANKILAM 2024</h2>
+            <div class="row align-items-center">
+                <!-- Candidates Grid -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="row g-3">
+                        <!-- Candidate 1 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate1-2024.jpg" class="img-fluid candidate-img" alt="Candidate 1 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">1</span>
+                                    <span class="candidate-name">ERILAIN AINA T. BACORIO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 2 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate2-2024.jpg" class="img-fluid candidate-img" alt="Candidate 2 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">2</span>
+                                    <span class="candidate-name">FLORA MAE E. DAÑO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 3 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate3-2024.jpg" class="img-fluid candidate-img" alt="Candidate 3 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">3</span>
+                                    <span class="candidate-name">KATE NICOLE L. MONDOÑEDO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 4 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate4-2024.jpg" class="img-fluid candidate-img" alt="Candidate 4 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">4</span>
+                                    <span class="candidate-name">KRISTELLE LOU T. MAGKIDONG</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 5 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate5-2024.jpg" class="img-fluid candidate-img" alt="Candidate 5 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">5</span>
+                                    <span class="candidate-name">WENIVIE D. AGONLA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 6 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate6-2024.jpg" class="img-fluid candidate-img" alt="Candidate 6 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">6</span>
+                                    <span class="candidate-name">MARY ANTONIET C. BATUCAN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 7 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate7-2024.jpg" class="img-fluid candidate-img" alt="Candidate 7 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">7</span>
+                                    <span class="candidate-name">ANGEL CARLA M. FAJARDO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 8 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate8-2024.jpg" class="img-fluid candidate-img" alt="Candidate 8 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">8</span>
+                                    <span class="candidate-name">KATHYRN ERIKA C. DARAMAN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 9 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate9-2024.jpg" class="img-fluid candidate-img" alt="Candidate 9 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">9</span>
+                                    <span class="candidate-name">VIOLETA PATRICIA R. NOCHE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 10 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate10-2024.jpg" class="img-fluid candidate-img" alt="Candidate 9 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">10</span>
+                                    <span class="candidate-name">JULLY ANN P. AGUDERA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 11 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate11-2024.jpg" class="img-fluid candidate-img" alt="Candidate 9 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">11</span>
+                                    <span class="candidate-name">ANGELA A. CABATUAN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate 12 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/candidate12-2024.jpg" class="img-fluid candidate-img" alt="Candidate 9 - Binibining Brgy. Mankilam 2024">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">12</span>
+                                    <span class="candidate-name">LIEZL A. FADULLAN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video Screening -->
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9 shadow rounded" style="overflow: hidden">
+                        <video controls title="Binibining Brgy. Mankilam 2024 Candidates Screening" poster="assets/images/binibini-video-bg.png" style="width: 100%; height: 100%; object-fit: cover">
+                            <source src="assets/videos/binibining2024.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="mt-3">
+                        <p class="mb-2" style="font-size: 1.08rem; color: #222">Watch the official screening video of Binibining Brgy. Mankilam 2024 and get to know the candidates, their personalities, advocacies, and talents.</p>
+                        <a href="learn-more.html" class="btn btn-outline-primary custom-hover px-4 py-2 fw-semibold" style="border-radius: 24px">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Announcements Section with Swiper Slider -->
+    <section id="news" class="py-5" style="background: #f8fafc">
+        <div class="container-fluid px-0">
+            <h2 class="text-center mb-2" style="color: rgb(4, 48, 93)">NEWS & ANNOUNCEMENTS</h2>
+            <div class="section-divider" style="margin-bottom: 32px"></div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="swiper news-swiper" style="border-radius: 18px; overflow: hidden; max-width: 1100px; margin: 0 auto;">
+                        <div class="swiper-wrapper">
+                            <!-- Swapped Slide 6 (Now Slide 1) -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news6.jpg" alt="News 6" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">March 8, 2024</div>
+                                        <strong>Binibining Barangay Mankilam 2024</strong><br>
+                                        The Binibining Mankilam 2024 is Violeta Patricia R. Noche, proudly representing Purok 3. She embodies the grace, intelligence, and leadership of the youth in our community
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news2.jpg" alt="News 2" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">April 28, 2025</div>
+                                        <strong>YES 2025 Youth Environmental Summit – Davao Region</strong><br>
+                                        The SK Council joined the YES 2025 Summit in Davao Region. Youth leaders gathered to learn about protecting the environment, planting trees, and planning climate actions. It was a great day of learning and teamwork for a cleaner and greener future!
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news3.jpg" alt="News 3" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">April 22- May 24, 2025</div>
+                                        <strong>Barangay Youth Orientation – Earth Festival 10th Edition (2025)</strong><br>
+                                        The SK held a youth orientation for the 10th Earth Festival 2025 at the barangay hall. The event taught young people how to care for the environment and encouraged them to join activities like tree planting, clean-up drives, and recycling. Over 35 youth attended the orientation.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 4 -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news4.jpg" alt="News 4" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">June 11, 2024</div>
+                                        <strong>Binibining Mankilam 2024 Tree Planting Activity</strong><br>
+                                        The candidates of Binibining Mankilam 2024 joined a tree planting activity to help protect and care for the environment. This event was held to promote love for nature and to encourage the youth to take part in keeping our community green and clean.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 5 -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news5.jpg" alt="News 5" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">March 8, 2024</div>
+                                        <strong>SK Barangay Mankilam 6th Regular Meeting</strong><br>
+                                        The Sangguniang Kabataan of Barangay Mankilam held its 6th regular meeting to talk about important plans, upcoming youth events, and updates on ongoing projects.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Swapped Slide 1 (Now Slide 6) -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news1.jpg" alt="News 1" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">September 13, 2024</div>
+                                        <strong>Mankilam Youth Festival 2024</strong><br>
+                                        The Mankilam Youth Festival 2024 was a fun event filled with music, dance, games, and art. It was held at the Mankilam Covered Court and joined by many young people. The goal was to show the talents of the youth and bring everyone together.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 7 -->
+                            <div class="swiper-slide position-relative">
+                                <img src="assets/images/news7.jpg" alt="News 7" style="width: 100%; height: 480px; object-fit: cover">
+                                <div class="news-desc-overlay">
+                                    <div>
+                                        <div class="small mb-1" style="color: #ffd700; font-weight: 600">March 8, 2024</div>
+                                        <strong>Basketball Players Under 39 of SK Barangay Mankilam</strong><br>
+                                        The SK Barangay Mankilam proudly supports 39 young basketball players. These players are part of the barangay’s basketball team. They practice hard and play with great teamwork.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const newsSwiper = new Swiper(".news-swiper", {
+            loop: true,
+            pagination: {
+                el: ".news-swiper .swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+    <!-- Youth Services Section -->
+    <section id="services" class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);">
+    <br>
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: rgb(4, 48, 93); font-size: 2.5rem; font-weight: 700;">YOUTH ACCESS</h2>
+        <div class="section-divider mx-auto mb-5" style="width: 80px; height: 4px; background: #04305d; border-radius: 2px;"></div>
+        <div class="row g-4 justify-content-center">
+            <!-- Scholarships -->
+            <div class="col-md-3 col-6">
+                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #04305d; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="mb-3" style="background: #e3edf7; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-mortarboard" style="font-size: 2.5rem; color: #04305d;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: #04305d; font-size: 1.5rem;">Scholarships</h5>
+                    <p class="small text-muted text-start w-100">Educational support for deserving youth to pursue their studies and reach their dreams.</p>
+                </div>
+            </div>
+
+            <!-- Free Use Sports Equipment -->
+            <div class="col-md-3 col-6">
+                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #ce1126; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="mb-3" style="background: #f8d7da; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-basketball-ball" style="font-size: 2.5rem; color: #ce1126;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: #ce1126; font-size: 1.5rem;">Free Use Sports Equipment</h5>
+                    <p class="small text-muted text-start w-100">Free for all youth of Barangay Mankilam to encourage active and healthy lifestyles.</p>
+                </div>
+            </div>
+
+            <!-- Free Printing Services -->
+            <div class="col-md-3 col-6">
+                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #0dcaf0; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="mb-3" style="background: #d1f5f9; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-printer" style="font-size: 2.5rem; color: #0dcaf0;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: #0dcaf0; font-size: 1.5rem;">Free Printing Services</h5>
+                    <p class="small text-muted text-start w-100">Free printing for school projects, assignments, and important documents for the youth of Barangay Mankilam.</p>
+                </div>
+            </div>
+
+            <!-- Access Free Counseling -->
+            <div class="col-md-3 col-6">
+                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #198754; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="mb-3" style="background: #d4edda; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-shield-check" style="font-size: 2.5rem; color: #198754;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: #198754; font-size: 1.5rem;">Access Free Counseling</h5>
+                    <p class="small text-muted text-start w-100">Access free counseling in a safe and welcoming environment, providing support and guidance to youth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-5">
+    <br>
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: rgb(4, 48, 93); font-size: 2.5rem;">CONTACT US</h2>
+        <div class="section-divider mx-auto mb-5" style="width: 80px; height: 4px; background: #04305d; border-radius: 2px;"></div>
+        <div class="row g-4">
+            <!-- Contact Information Card -->
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow-lg" style="border: none; background-color: #fff; border-radius: 18px;">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-4" style="color: #04305d; font-size: 1.5rem;">
+                            <i class="bi bi-person-lines-fill me-2"></i>Contact Information
+                        </h5>
+                        <p class="mb-3" style="font-size: 1.1rem;">
+                            <i class="bi bi-facebook text-primary me-2"></i>
+                            <a href="https://facebook.com/skmankilam" target="_blank" class="text-decoration-none" style="color: #04305d;">facebook.com/skmankilam</a>
+                        </p>
+                        <p class="mb-3" style="font-size: 1.1rem;">
+                            <i class="bi bi-envelope-fill text-danger me-2"></i>
+                            <a href="mailto:skmankilamtgm.ddn@gmail.com" class="text-decoration-none" style="color: #04305d;">skmankilamtgm.ddn@gmail.com</a>
+                        </p>
+                        <p class="mb-3" style="font-size: 1.1rem;">
+                            <i class="bi bi-geo-alt-fill text-success me-2"></i>
+                            <span>Brgy. Mankilam, Tagum City, Philippines, 8100</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Office Hours Card -->
+                <div class="card shadow-sm mt-4" style="border: none; background-color: #fff; border-radius: 14px;">
+                    <div class="card-body py-4 px-4">
+                        <h6 class="fw-bold mb-3" style="color: #04305d; font-size: 1.2rem;">
+                            <i class="bi bi-clock-history me-2"></i>Office Hours
+                        </h6>
+                        <div style="font-size: 1.1rem; color: #04305d;">
+                            <div class="mb-2">Monday - Friday: <span class="fw-semibold">9:00 AM - 5:00 PM</span></div>
+                            <div class="mb-2">Saturday: <span class="fw-semibold">9:00 AM - 3:00 PM</span></div>
+                            <div>Sunday: <span class="fw-semibold text-danger">Closed</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="col-lg-6">
+                <div class="card shadow-lg" style="border: none; background-color: #fff; border-radius: 18px; min-height: 420px; display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold mb-4" style="color: #04305d; font-size: 1.5rem;">
+                            <i class="bi bi-geo-alt-fill me-2"></i>Barangay Mankilam Location
+                        </h5>
+                        <div style="width: 100%; height: 320px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(4, 48, 93, 0.08); margin-bottom: 12px;">
+                            <iframe src="https://www.google.com/maps?q=Barangay+Mankilam,+Tagum+City,+Davao+del+Norte,+Philippines&output=embed" width="100%" height="320" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <p class="mb-0 text-muted" style="font-size: 1.1rem;">Brgy. Mankilam, Tagum City, Davao del Norte, Philippines</p>
+                        <small class="text-muted d-block mt-2">For directions, search "Barangay Mankilam Tagum City" on Google Maps.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="text-white pt-4 pb-2" style="background-color: rgb(4, 48, 93)">
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-md-4 mb-3">
+                    <h5><img src="assets/images/logo1.png" alt="Logo" width="80" height="80" class="me-2 align-middle"></h5>
+                    <p class="small">The Sangguniang Kabataan of Barangay Mankilam helps young people and serves the community through leadership, new ideas, and active participation.</p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#about" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="officials.html" class="text-white text-decoration-none">Officials</a></li>
+                        <li><a href="projects.html" class="text-white text-decoration-none">Projects</a></li>
+                        <li><a href="accomplishment.html" class="text-white text-decoration-none">Accomplishment</a></li>
+                        <li><a href="news.html" class="text-white text-decoration-none">News</a></li>
+                        <li><a href="index.html#services" class="text-white text-decoration-none">Access</a></li>
+                        <li><a href="index.html#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact & Social -->
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p class="small mb-1"><i class="bi bi-envelope"></i> skmankilamtgm.ddn@gmail.com</p>
+                    <p class="small mb-2"><i class="bi bi-telephone"></i> (123) 456-7890</p>
+                    <a href="https://www.facebook.com/profile.php?id=61553998101858" class="text-white me-2"><i class="bi bi-facebook" style="font-size: 1.5rem"></i></a>
+                </div>
+            </div>
+            <hr class="border-light">
+            <div class="text-center small">&copy; 2025 SK Barangay Mankilam. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Optimize video loading
+            const videos = document.querySelectorAll('video');
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting && !entry.target.paused) {
+                        entry.target.pause();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            videos.forEach(video => videoObserver.observe(video));
+        });
+    </script>
+</body>
+</html>

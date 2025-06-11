@@ -1,0 +1,109 @@
+/* Candidate Grid Styles */
+.candidate-img-wrapper {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(4,48,93,0.10);
+  background: #fff;
+  transition: transform 0.3s;
+  position: relative;
+}
+.candidate-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s;
+  display: block;
+}
+.candidate-img-wrapper:hover .candidate-img,
+.candidate-img:focus {
+  transform: scale(1.08);
+  z-index: 2;
+}
+.candidate-hover-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: rgba(255,255,255,0.92);
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 10px 4px 10px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  text-align: center;
+  transition: opacity 0.25s;
+  pointer-events: none;
+  min-height: 38px;
+}
+.candidate-img-wrapper:hover .candidate-hover-bar,
+.candidate-img-wrapper:focus-within .candidate-hover-bar {
+  opacity: 1;
+}
+.candidate-number-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  color: #111;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  border: 2px solid #04305d;
+  margin-left: -20px;
+}
+.candidate-name {
+  font-weight: 600;
+  color: #111;
+  font-size: 0.5rem;
+  margin-left: -2px;
+}
+
+/* News & Announcements Swiper Overlay */
+.news-desc-overlay {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    background: rgba(4,48,93,0.72);
+    color: #fff;
+    padding: 18px 24px 12px 24px;
+    font-size: 1.08rem;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    min-height: 70px;
+    max-height: 38%;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    .news-swiper img { height: 220px !important; }
+    .news-desc-overlay {
+        font-size: 0.98rem;
+        padding: 8px 10px 6px 10px;
+        min-height: 38px;
+        max-height: 38%;
+        background: rgba(4,48,93,0.82);
+    }
+}
+
+/* Project Card Images */
+.project-img {
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    width: 100%;
+}
+@media (max-width: 767px) {
+    .project-img {
+        height: 140px;
+    }
+}
