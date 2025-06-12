@@ -184,4 +184,75 @@ footer .bi:hover {
     .event-item.active .badge {
         background-color: rgba(255, 255, 255, 0.15) !important;
     }
+ .official-img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(4, 48, 93, 0.08);
+            background: #f8fafc;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        @media (max-width: 991.98px) {
+            .official-img { max-width: 260px; }
+        }
+
+        @media (max-width: 575.98px) {
+            .official-img { max-width: 140px; }
+        }
+
+        /* Offcanvas custom styles */
+        .custom-offcanvas {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            max-width: 85vw;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -2px 0 16px rgba(0, 0, 0, 0.08);
+            z-index: 1051;
+            transition: right 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-offcanvas.show {
+            right: 0;
+        }
+
+        .offcanvas-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1050;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .offcanvas-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .custom-offcanvas .close-offcanvas {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #04305d;
+            z-index: 2;
+        }
+
+        @media (min-width: 992px) {
+            .custom-offcanvas, .offcanvas-overlay { display: none !important; }
+        }

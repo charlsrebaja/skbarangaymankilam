@@ -5,91 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SK Officials - Barangay Mankilam</title>
     <meta name="description" content="Sangguniang Kabataan Officials of Barangay Mankilam">
-    <link rel="icon" type="image/png" href="assets/images/logo1.png">
+    <link rel="icon" type="image/png" href="assets/images/logo2.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        .official-img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(4, 48, 93, 0.08);
-            background: #f8fafc;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 991.98px) {
-            .official-img { max-width: 260px; }
-        }
-
-        @media (max-width: 575.98px) {
-            .official-img { max-width: 140px; }
-        }
-
-        /* Offcanvas custom styles */
-        .custom-offcanvas {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 320px;
-            max-width: 85vw;
-            height: 100vh;
-            background: #fff;
-            box-shadow: -2px 0 16px rgba(0, 0, 0, 0.08);
-            z-index: 1051;
-            transition: right 0.35s cubic-bezier(0.77, 0, 0.18, 1);
-            padding: 2rem 1.5rem 1.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .custom-offcanvas.show {
-            right: 0;
-        }
-
-        .offcanvas-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 1050;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .offcanvas-overlay.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .custom-offcanvas .close-offcanvas {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #04305d;
-            z-index: 2;
-        }
-
-        @media (min-width: 992px) {
-            .custom-offcanvas, .offcanvas-overlay { display: none !important; }
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(4, 48, 93);">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/images/logo1.png" alt="Barangay Mankilam Logo" width="50" height="50" class="d-inline-block me-2">
+                <img src="assets/images/logo2.webp" alt="Barangay Mankilam Logo" width="50" height="50" class="d-inline-block me-2">
                 BARANGAY MANKILAM
             </a>
             <button class="navbar-toggler" type="button" id="customNavbarToggler" aria-label="Toggle navigation">
@@ -128,62 +54,62 @@
 
     <!-- Officials Section -->
     <section id="officials" class="py-5">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-center mb-4 gap-3 flex-wrap">
-                <img src="assets/images/logo2.png" alt="Logo Left" width="50" height="50" class="d-inline-block" loading="lazy">
-                <div class="text-center">
-                    <h2 class="mb-0" style="color: rgb(4, 48, 93);">SANGGUNIANG KABATAAN OFFICIALS</h2>
-                    <div class="small text-muted fw-bold" style="letter-spacing:1px;">CY 2023 - 2025</div>
-                </div>
-                <img src="assets/images/logo4.png" alt="Logo Right" width="50" height="50" class="d-inline-block" loading="lazy">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center mb-4 gap-3 flex-wrap">
+            <img src="assets/images/logo2.webp" alt="Logo Left" width="50" height="50" class="d-inline-block" loading="lazy" decoding="async">
+            <div class="text-center">
+                <h2 class="mb-0" style="color: rgb(4, 48, 93);">SANGGUNIANG KABATAAN OFFICIALS</h2>
+                <div class="small text-muted fw-bold" style="letter-spacing:1px;">CY 2023 - 2025</div>
             </div>
-            <!-- Centered Top Image -->
-            <div class="row justify-content-center mb-4">
-                <div class="col-12 text-center">
-                    <img src="assets/images/sk-chairperson.png" class="img-fluid official-img" alt="SK Chairperson" loading="lazy">
-                </div>
-            </div>
-            <!-- Images 2-9 in a 4-column grid -->
-            <div class="row g-4 mb-5 justify-content-center">
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official1.png" class="img-fluid official-img" alt="SK Official 1" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official2.png" class="img-fluid official-img" alt="SK Official 2" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official3.png" class="img-fluid official-img" alt="SK Official 3" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official4.png" class="img-fluid official-img" alt="SK Official 4" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official5.png" class="img-fluid official-img" alt="SK Official 5" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official6.png" class="img-fluid official-img" alt="SK Official 6" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official7.png" class="img-fluid official-img" alt="SK Official 7" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official8.png" class="img-fluid official-img" alt="SK Official 8" loading="lazy">
-                </div>
-            </div>
-            <!-- Three centered images at the bottom -->
-            <div class="row justify-content-center g-4">
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official9.png" class="img-fluid official-img" alt="SK Official 9" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official10.png" class="img-fluid official-img" alt="SK Official 10" loading="lazy">
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="assets/images/sk-official11.png" class="img-fluid official-img" alt="SK Official 11" loading="lazy">
-                </div>
+            <img src="assets/images/logo4.webp" alt="Logo Right" width="50" height="50" class="d-inline-block" loading="lazy" decoding="async">
+        </div>
+        <!-- Centered Top Image -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 text-center">
+                <img src="assets/images/sk-chairperson.webp" class="img-fluid official-img" alt="SK Chairperson" loading="lazy" decoding="async" width="320" height="427">
             </div>
         </div>
-    </section>
+        <!-- Images 2-9 in a 4-column grid -->
+        <div class="row g-4 mb-5 justify-content-center">
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official1.webp" class="img-fluid official-img" alt="SK Official 1" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official2.webp" class="img-fluid official-img" alt="SK Official 2" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official3.webp" class="img-fluid official-img" alt="SK Official 3" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official4.webp" class="img-fluid official-img" alt="SK Official 4" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official5.webp" class="img-fluid official-img" alt="SK Official 5" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official6.webp" class="img-fluid official-img" alt="SK Official 6" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official7.webp" class="img-fluid official-img" alt="SK Official 7" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official8.webp" class="img-fluid official-img" alt="SK Official 8" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+        </div>
+        <!-- Three centered images at the bottom -->
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official9.webp" class="img-fluid official-img" alt="SK Official 9" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official10.webp" class="img-fluid official-img" alt="SK Official 10" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="assets/images/sk-official11.webp" class="img-fluid official-img" alt="SK Official 11" loading="lazy" decoding="async" width="320" height="427">
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="text-white pt-4 pb-2" style="background-color: rgb(4, 48, 93);">
@@ -212,7 +138,7 @@
                 <div class="col-md-4 mb-3">
                     <h5>Contact Us</h5>
                     <p class="small mb-1"><i class="bi bi-envelope-fill"></i> skmankilamtgm.ddn@gmail.com</p>
-                    <p class="small mb-2"><i class="bi bi-telephone-fill"></i> (123) 456-7890</p>
+                    <p class="small mb-2"><i class="bi bi-telephone-fill"></i> 09976433736</p>
                     <a href="https://www.facebook.com/profile.php?id=61553998101858" class="text-warning me-2" aria-label="Facebook"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
                 </div>
             </div>

@@ -14,7 +14,7 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
     <!-- Preload critical resources -->
-    <link rel="preload" as="image" href="assets/images/logo1.png">
+    <link rel="preload" as="image" href="assets/images/logo2.webp">
     <link rel="preload" as="image" href="assets/images/hero-bg.jpg">
     <link rel="icon" type="image/png" href="assets/images/logo1.png" sizes="40x40">
 
@@ -88,7 +88,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(4, 48, 93)">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="assets/images/logo1.png" alt="Logo" width="50" height="50" class="d-inline-block">
+                <img src="assets/images/logo2.webp" alt="Logo" width="50" height="50" class="d-inline-block">
                 BARANGAY MANKILAM
             </a>
             <button class="navbar-toggler" type="button" id="customNavbarToggler" aria-label="Toggle navigation">
@@ -176,13 +176,13 @@
         <div class="swiper hero-swiper" style="height: 100%">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="assets/images/hero-bg.jpg" alt="Slide 1" loading="eager" style="width: 100%; height: 100%; object-fit: cover">
+                    <img src="assets/images/hero-bg.webp" alt="Slide 1" loading="eager" style="width: 100%; height: 100%; object-fit: cover">
                 </div>
                 <div class="swiper-slide">
-                    <img src="assets/images/hero-bg1.jpg" alt="Slide 2" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+                    <img src="assets/images/hero-bg1.webp" alt="Slide 2" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
                 </div>
                 <div class="swiper-slide">
-                    <img src="assets/images/hero-bg2.jpg" alt="Slide 3" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+                    <img src="assets/images/hero-bg2.webp" alt="Slide 3" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -689,7 +689,7 @@
                                     <div>
                                         <div class="small mb-1" style="color: #ffd700; font-weight: 600">March 8, 2024</div>
                                         <strong>Binibining Barangay Mankilam 2024</strong><br>
-                                        The Binibining Mankilam 2024 is Violeta Patricia R. Noche, proudly representing Purok 3. She embodies the grace, intelligence, and leadership of the youth in our community
+                                        The Binibining Mankilam 2024 is Violeta Patricia R. Noche, proudly representing Purok Countryhomes. She embodies the grace, intelligence, and leadership of the youth in our community
                                     </div>
                                 </div>
                             </div>
@@ -778,52 +778,159 @@
     </script>
 
     <!-- Youth Services Section -->
-   <section id="services" class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);">
+     <style>
+    .card {
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .card ul {
+        padding-left: 1.5rem;
+        text-align: left;
+        width: 100%;
+    }
+    .card li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0 auto 1rem auto;
+    }
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Diamond list styles */
+    .diamond-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .diamond-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .diamond-list li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background-color: #04305d; /* Change this color as needed */
+        transform: rotate(45deg);
+        margin-top: 4px;
+    }
+</style>
+
+<section id="services" class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);">
+    <br>
     <div class="container">
         <h2 class="text-center mb-4" style="color: rgb(4, 48, 93); font-size: 2.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">YOUTH ACCESS</h2>
         <div class="section-divider mx-auto mb-5" style="width: 100px; height: 4px; background: #04305d; border-radius: 2px;"></div>
         <div class="row g-4 justify-content-center">
-            <!-- Scholarships -->
-            <div class="col-md-3 col-6">
-                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #04305d; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="mb-3" style="background: #e3edf7; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(4, 48, 93, 0.2);">
-                        <i class="bi bi-mortarboard" style="font-size: 2.5rem; color: #04305d;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3" style="color: #04305d; font-size: 1.5rem;">Scholarships</h5>
-                    <p class="small text-muted text-start w-100">Educational support for deserving youth to pursue their studies and reach their dreams.</p>
+
+            <!-- Education Projects -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #04305d;">
+                    <div class="card-icon" style="background: #5eaeff;"><i class="fas fa-graduation-cap" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Education Projects</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Tabang eSKwela Program</li>
+                        <li>SK Educational Scholarship Program</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Free Use Sports Equipment -->
-            <div class="col-md-3 col-6">
-                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #ce1126; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="mb-3" style="background: #f8d7da; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(206, 17, 38, 0.2);">
-                        <i class="fas fa-basketball-ball" style="font-size: 2.5rem; color: #ce1126;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3" style="color: #ce1126; font-size: 1.5rem;">Free Use Sports Equipment</h5>
-                    <p class="small text-muted text-start w-100">Free for all youth of Barangay Mankilam to encourage active and healthy lifestyles.</p>
+            <!-- Health Projects -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #dc3545;">
+                    <div class="card-icon" style="background: #f56674;"><i class="fas fa-heartbeat" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Health Projects</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Project SKapuso: Distribution of Medicines and Maintenance</li>
+                        <li>Free Contraceptives and Pills for community health</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Free Printing Services -->
-            <div class="col-md-3 col-6">
-                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #0dcaf0; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="mb-3" style="background: #d1f5f9; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(13, 202, 240, 0.2);">
-                        <i class="bi bi-printer" style="font-size: 2.5rem; color: #0dcaf0;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3" style="color: #0dcaf0; font-size: 1.5rem;">Free Printing Services</h5>
-                    <p class="small text-muted text-start w-100">Free printing for school projects, assignments, and important documents for the youth of Barangay Mankilam.</p>
+            <!-- Sports Development Projects -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #0d6efd;">
+                    <div class="card-icon" style="background: #2c7ffc;"><i class="fas fa-trophy" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Sports Development</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Distribution of Sports Equipments</li>
+                        <li>Sports Clinic for 15–24 Years Old</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Access Free Counseling -->
-            <div class="col-md-3 col-6">
-                <div class="card h-100 shadow-sm border-0 d-flex flex-column align-items-center text-center p-4" style="border-radius: 18px; min-height: 100%; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-bottom: 3px solid #198754; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="mb-3" style="background: #d4edda; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(25, 135, 84, 0.2);">
-                        <i class="bi bi-shield-check" style="font-size: 2.5rem; color: #198754;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3" style="color: #198754; font-size: 1.5rem;">Access Free Counseling</h5>
-                    <p class="small text-muted text-start w-100">Access free counseling in a safe and welcoming environment, providing support and guidance to youth.</p>
+            <!-- Printing & Photocopy Services -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #0dcaf0;">
+                    <div class="card-icon" style="background: #16caee;"><i class="fas fa-print" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Free Printing & Photocopy</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Limited Access to Free Printing for Students</li>
+                        <li>Unlimited Access to Photocopy Services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Environment and Agriculture -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #198754;">
+                    <div class="card-icon" style="background: #50e8a1;"><i class="fas fa-leaf" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Environment & Agriculture</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Tree Planting Activities</li>
+                        <li>Mosquito/Insect Fogging Services</li>
+                        <li>Access to Free Seedlings of Vegetables</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social Inclusion and Equity -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #6f42c1;">
+                    <div class="card-icon" style="background: #6f42c1;"><i class="fas fa-users" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Social Inclusion And Equity</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Support for PWDs</li>
+                        <li>LGBTs community</li>
+                        <li>Young Solo Parents</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Economic Empowerment -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 p-4" style="border-radius: 18px; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border-left: 5px solid #fd7e14;">
+                    <div class="card-icon" style="background: #fd7e14;"><i class="fas fa-lightbulb" style="color: #fff;"></i></div>
+                    <h5 class="fw-bold card-title" style="color: #000000;">Economic Empowerment</h5>
+                    <ul class="text-muted diamond-list">
+                        <li>Free Digital Skills Training</li>
+                        <li>Livelihood Project Granting Support</li>
+                        <li>Free Virtual Assistant Training</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -831,18 +938,16 @@
 </section>
 
 
-
-
     <!-- Contact Us Section -->
-    <section id="contact" class="py-5">
+<section id="contact" class="py-5">
     <br>
     <div class="container">
         <h2 class="text-center mb-4" style="color: rgb(4, 48, 93); font-size: 2.5rem;">CONTACT US</h2>
         <div class="section-divider mx-auto mb-5" style="width: 80px; height: 4px; background: #04305d; border-radius: 2px;"></div>
         <div class="row g-4">
-            <!-- Contact Information Card -->
-            <div class="col-lg-6 mb-4">
-                <div class="card shadow-lg" style="border: none; background-color: #fff; border-radius: 18px;">
+            <!-- Contact Information and Office Hours Cards -->
+            <div class="col-lg-6">
+                <div class="card shadow-lg mb-4" style="border: none; background-color: #fff; border-radius: 18px;">
                     <div class="card-body">
                         <h5 class="fw-bold mb-4" style="color: #04305d; font-size: 1.5rem;">
                             <i class="bi bi-person-lines-fill me-2"></i>Contact Information
@@ -861,9 +966,7 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- Office Hours Card -->
-                <div class="card shadow-sm mt-4" style="border: none; background-color: #fff; border-radius: 14px;">
+                <div class="card shadow-lg" style="border: none; background-color: #fff; border-radius: 18px;">
                     <div class="card-body py-4 px-4">
                         <h6 class="fw-bold mb-3" style="color: #04305d; font-size: 1.2rem;">
                             <i class="bi bi-clock-history me-2"></i>Office Hours
@@ -879,13 +982,13 @@
 
             <!-- Location Card -->
             <div class="col-lg-6">
-                <div class="card shadow-lg" style="border: none; background-color: #fff; border-radius: 18px; min-height: 420px; display: flex; align-items: center; justify-content: center;">
-                    <div class="card-body text-center">
+                <div class="card shadow-lg h-100" style="border: none; background-color: #fff; border-radius: 18px; display: flex; flex-direction: column;">
+                    <div class="card-body text-center d-flex flex-column">
                         <h5 class="fw-bold mb-4" style="color: #04305d; font-size: 1.5rem;">
                             <i class="bi bi-geo-alt-fill me-2"></i>Barangay Mankilam Location
                         </h5>
-                        <div style="width: 100%; height: 320px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(4, 48, 93, 0.08); margin-bottom: 12px;">
-                            <iframe src="https://www.google.com/maps?q=Barangay+Mankilam,+Tagum+City,+Davao+del+Norte,+Philippines&output=embed" width="100%" height="320" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div style="width: 100%; height: 320px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(4, 48, 93, 0.08); margin-bottom: 12px; flex-grow: 1;">
+                            <iframe src="https://www.google.com/maps?q=Barangay+Mankilam,+Tagum+City,+Davao+del+Norte,+Philippines&output=embed" width="100%" height="100%" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <p class="mb-0 text-muted" style="font-size: 1.1rem;">Brgy. Mankilam, Tagum City, Davao del Norte, Philippines</p>
                         <small class="text-muted d-block mt-2">For directions, search "Barangay Mankilam Tagum City" on Google Maps.</small>
@@ -923,7 +1026,7 @@
                 <div class="col-md-4 mb-3">
                     <h5>Contact Us</h5>
                     <p class="small mb-1"><i class="bi bi-envelope"></i> skmankilamtgm.ddn@gmail.com</p>
-                    <p class="small mb-2"><i class="bi bi-telephone"></i> (123) 456-7890</p>
+                    <p class="small mb-2"><i class="bi bi-telephone"></i> 09976433736</p>
                     <a href="https://www.facebook.com/profile.php?id=61553998101858" class="text-white me-2"><i class="bi bi-facebook" style="font-size: 1.5rem"></i></a>
                 </div>
             </div>
