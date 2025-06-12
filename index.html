@@ -7,26 +7,70 @@
     <meta name="google-site-verification" content="MIGvEvo_yjfLut0BeSN9QApnwVhdFHuVJ_rcUfevV84" />
     <meta name="robots" content="index, follow">
     <title>SK Barangay Mankilam</title>
-    
-    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    
-    <!-- Preload critical resources -->
     <link rel="preload" as="image" href="assets/images/logo2.webp">
     <link rel="preload" as="image" href="assets/images/hero-bg.webp">
     <link rel="icon" type="image/png" href="assets/images/logo2.webp" sizes="40x40">
-
-    <!-- Optimize CSS loading -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/custom.css" media="print" onload="this.media='all'">
+    <style>
+        .candidate-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f8fafc;
+            box-shadow: 0 2px 8px rgba(4,48,93,0.08);
+        }
+        .candidate-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+            background: #e3edf7;
+        }
+        .candidate-hover-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(4,48,93,0.82);
+            color: #fff;
+            padding: 8px 10px;
+            font-size: 1rem;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .candidate-img-wrapper:hover .candidate-hover-bar,
+        .candidate-img-wrapper:focus .candidate-hover-bar {
+            opacity: 1;
+        }
+        .candidate-number-circle {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #ffd700;
+            color: #04305d;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+        .candidate-name {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(4, 48, 93)">
@@ -40,35 +84,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="officials.html">Officials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="accomplishment.html">Accomplishment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.html">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Access</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="officials.html">Officials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="accomplishment.html">Accomplishment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Access</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Offcanvas for mobile -->
     <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
     <nav class="custom-offcanvas" id="customOffcanvas" tabindex="-1" aria-label="Mobile menu">
@@ -84,37 +111,30 @@
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
     </nav>
-
     <script>
         // Offcanvas navbar logic
         const toggler = document.getElementById("customNavbarToggler");
         const offcanvas = document.getElementById("customOffcanvas");
         const overlay = document.getElementById("offcanvasOverlay");
         const closeBtn = document.getElementById("closeOffcanvas");
-
         function openOffcanvas() {
             offcanvas.classList.add("show");
             overlay.classList.add("show");
             document.body.style.overflow = "hidden";
             offcanvas.focus();
         }
-
         function closeOffcanvas() {
             offcanvas.classList.remove("show");
             overlay.classList.remove("show");
             document.body.style.overflow = "";
         }
-
         toggler.addEventListener("click", openOffcanvas);
         closeBtn.addEventListener("click", closeOffcanvas);
         overlay.addEventListener("click", closeOffcanvas);
-
-        // Close on ESC
         offcanvas.addEventListener("keydown", function(e) {
             if (e.key === "Escape") closeOffcanvas();
         });
     </script>
-
     <!-- Hero Section with optimized Swiper Slider -->
     <header class="text-center text-white bg-dark position-relative" style="padding: 0; height: 500px">
         <div class="swiper hero-swiper" style="height: 100%">
@@ -132,18 +152,15 @@
             <div class="swiper-pagination"></div>
         </div>
     </header>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Swiper with performance optimizations
             const swiper = new Swiper(".hero-swiper", {
                 loop: true,
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
-                // Performance optimizations
                 preloadImages: false,
                 lazy: true,
                 watchSlidesProgress: true,
@@ -151,7 +168,6 @@
             });
         });
     </script>
-    
     <!-- About Section -->
     <section id="about" class="py-5 bg-light">
     <br>
@@ -335,7 +351,6 @@
             });
         });
     </script>
-
     <!-- Accomplished Events & Activities Section -->
     <section class="py-5" style="background: rgb(248, 248, 248)">
         <div class="container">
@@ -393,7 +408,6 @@
             </div>
         </div>
     </section>
-
     <!-- JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -427,7 +441,6 @@
             });
         });
     </script>
-
     <!-- Projects Section -->
     <section id="projects" class="py-5 bg-light">
         <div class="container">
@@ -467,159 +480,156 @@
             </div>
         </div>
     </section>
-
-     <!-- Binibining Brgy. Mankilam 2025 Section -->
-<section id="binibining-mankilam-2024" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center fw-bold mb-4" style="color: rgb(4, 48, 93)">BINIBINING BRGY. MANKILAM 2025</h2>
-        <div class="row align-items-center">
-            <!-- Candidates Grid -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="row g-3">
-                    <!-- Candidate 1 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 1.webp" class="img-fluid candidate-img" alt="Candidate 1 - MIAHRA M. TADENA" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">1</span>
-                                <span class="candidate-name">MIAHRA M. TADENA</span>
+    <!-- Binibining Brgy. Mankilam 2025 Section -->
+    <section id="binibining-mankilam-2024" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4" style="color: rgb(4, 48, 93)">BINIBINING BRGY. MANKILAM 2025</h2>
+            <div class="row align-items-center">
+                <!-- Candidates Grid -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="row g-3">
+                        <!-- Candidate 1 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 1.webp" class="img-fluid candidate-img" alt="Candidate 1 - MIAHRA M. TADENA" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">1</span>
+                                    <span class="candidate-name">MIAHRA M. TADENA</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 2 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 2.webp" class="img-fluid candidate-img" alt="Candidate 2 - IVY DELA CRUZ" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">2</span>
-                                <span class="candidate-name">IVY DELA CRUZ</span>
+                        <!-- Candidate 2 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 2.webp" class="img-fluid candidate-img" alt="Candidate 2 - IVY DELA CRUZ" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">2</span>
+                                    <span class="candidate-name">IVY DELA CRUZ</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 3 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 3.webp" class="img-fluid candidate-img" alt="Candidate 3 - SHEERY MAE MORADA" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">3</span>
-                                <span class="candidate-name">SHEERY MAE MORADA</span>
+                        <!-- Candidate 3 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 3.webp" class="img-fluid candidate-img" alt="Candidate 3 - SHEERY MAE MORADA" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">3</span>
+                                    <span class="candidate-name">SHEERY MAE MORADA</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 4 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 4.webp" class="img-fluid candidate-img" alt="Candidate 4 - ELEONA CHING D. BAUTISTA" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">4</span>
-                                <span class="candidate-name">ELEONA CHING D. BAUTISTA</span>
+                        <!-- Candidate 4 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 4.webp" class="img-fluid candidate-img" alt="Candidate 4 - ELEONA CHING D. BAUTISTA" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">4</span>
+                                    <span class="candidate-name">ELEONA CHING D. BAUTISTA</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 5 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 5.webp" class="img-fluid candidate-img" alt="Candidate 5 - SHANLEY R. YLANAN" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">5</span>
-                                <span class="candidate-name">SHANLEY R. YLANAN</span>
+                        <!-- Candidate 5 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 5.webp" class="img-fluid candidate-img" alt="Candidate 5 - SHANLEY R. YLANAN" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">5</span>
+                                    <span class="candidate-name">SHANLEY R. YLANAN</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 6 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 6.webp" class="img-fluid candidate-img" alt="Candidate 6 - MARY APRIL L. JABON" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">6</span>
-                                <span class="candidate-name">MARY APRIL L. JABON</span>
+                        <!-- Candidate 6 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 6.webp" class="img-fluid candidate-img" alt="Candidate 6 - MARY APRIL L. JABON" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">6</span>
+                                    <span class="candidate-name">MARY APRIL L. JABON</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 7 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 7.webp" class="img-fluid candidate-img" alt="Candidate 7 - PRINCESS GLORY JANE" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">7</span>
-                                <span class="candidate-name">PRINCESS GLORY JANE</span>
+                        <!-- Candidate 7 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 7.webp" class="img-fluid candidate-img" alt="Candidate 7 - PRINCESS GLORY JANE" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">7</span>
+                                    <span class="candidate-name">PRINCESS GLORY JANE</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 8 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 8.webp" class="img-fluid candidate-img" alt="Candidate 8 - KRISHA CASSANDRA" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">8</span>
-                                <span class="candidate-name">KRISHA CASSANDRA</span>
+                        <!-- Candidate 8 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 8.webp" class="img-fluid candidate-img" alt="Candidate 8 - KRISHA CASSANDRA" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">8</span>
+                                    <span class="candidate-name">KRISHA CASSANDRA</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 9 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 9.webp" class="img-fluid candidate-img" alt="Candidate 9 - DIANNE ANGEL AGUILAR" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">9</span>
-                                <span class="candidate-name">DIANNE ANGEL AGUILAR</span>
+                        <!-- Candidate 9 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 9.webp" class="img-fluid candidate-img" alt="Candidate 9 - DIANNE ANGEL AGUILAR" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">9</span>
+                                    <span class="candidate-name">DIANNE ANGEL AGUILAR</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 10 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 10.jpg" class="img-fluid candidate-img" alt="Candidate 10 - CHRISTINE MAE NICOLE" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">10</span>
-                                <span class="candidate-name">CHRISTINE MAE NICOLE</span>
+                        <!-- Candidate 10 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 10.jpg" class="img-fluid candidate-img" alt="Candidate 10 - CHRISTINE MAE NICOLE" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">10</span>
+                                    <span class="candidate-name">CHRISTINE MAE NICOLE</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 11 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 11.jpg" class="img-fluid candidate-img" alt="Candidate 11 - ERICALINA JUNE BACORIO" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">11</span>
-                                <span class="candidate-name">ERICALINA JUNE BACORIO</span>
+                        <!-- Candidate 11 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 11.jpg" class="img-fluid candidate-img" alt="Candidate 11 - ERICALINA JUNE BACORIO" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">11</span>
+                                    <span class="candidate-name">ERICALINA JUNE BACORIO</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Candidate 12 -->
-                    <div class="col-4">
-                        <div class="candidate-img-wrapper position-relative">
-                            <img src="assets/images/candidates/Candidate 12.jpg" class="img-fluid candidate-img" alt="Candidate 12 - PATRICIA VIOLETA R. NOCHE" loading="lazy" width="400" height="500">
-                            <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
-                                <span class="candidate-number-circle">12</span>
-                                <span class="candidate-name">PATRICIA VIOLETA R. NOCHE</span>
+                        <!-- Candidate 12 -->
+                        <div class="col-4">
+                            <div class="candidate-img-wrapper position-relative">
+                                <img src="assets/images/candidates/Candidate 12.jpg" class="img-fluid candidate-img" alt="Candidate 12 - PATRICIA VIOLETA R. NOCHE" loading="lazy" width="400" height="500">
+                                <div class="candidate-hover-bar d-flex align-items-center justify-content-center gap-2">
+                                    <span class="candidate-number-circle">12</span>
+                                    <span class="candidate-name">PATRICIA VIOLETA R. NOCHE</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Photo Screening -->
-            <div class="col-lg-6">
-                <div class="shadow rounded overflow-hidden">
-                    <img src="assets/images/candidates/binibini-photo-screening.jpg"
-                        alt="Binibining Brgy. Mankilam 2024 Candidates Photo Screening"
-                        class="img-fluid w-100"
-                        style="object-fit: cover; height: 100%;" loading="lazy" width="600" height="400">
-                </div>
-                <div class="mt-3">
-                    <p class="mb-2" style="font-size: 1.08rem; color: #222">
-                        View the official photo screening of Binibining Brgy. Mankilam 2024 and see the grace, charm, and individuality of each candidate captured in a frame.
-                    </p>
-                    <a href="learn-more.html" class="btn btn-outline-primary custom-hover px-4 py-2 fw-semibold" style="border-radius: 24px">
-                        Learn More
-                    </a>
+                <!-- Photo Screening -->
+                <div class="col-lg-6">
+                    <div class="shadow rounded overflow-hidden">
+                        <img src="assets/images/candidates/binibini-photo-screening.jpg"
+                            alt="Binibining Brgy. Mankilam 2024 Candidates Photo Screening"
+                            class="img-fluid w-100"
+                            style="object-fit: cover; height: 100%;" loading="lazy" width="600" height="400">
+                    </div>
+                    <div class="mt-3">
+                        <p class="mb-2" style="font-size: 1.08rem; color: #222">
+                            View the official photo screening of Binibining Brgy. Mankilam 2024 and see the grace, charm, and individuality of each candidate captured in a frame.
+                        </p>
+                        <a href="learn-more.html" class="btn btn-outline-primary custom-hover px-4 py-2 fw-semibold" style="border-radius: 24px">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
     <!-- News & Announcements Section with Swiper Slider -->
     <section id="news" class="py-5" style="background: #f8fafc">
         <div class="container-fluid px-0">
@@ -713,7 +723,6 @@
             </div>
         </div>
     </section>
-
     <script>
         const newsSwiper = new Swiper(".news-swiper", {
             loop: true,
@@ -723,7 +732,6 @@
             },
         });
     </script>
-
     <!-- Youth Services Section -->
      <style>
     .card {
@@ -883,8 +891,6 @@
         </div>
     </div>
 </section>
-
-
     <!-- Contact Us Section -->
 <section id="contact" class="py-5">
     <br>
@@ -945,8 +951,6 @@
         </div>
     </div>
 </section>
-
-
     <!-- Footer -->
     <footer class="text-white pt-4 pb-2" style="background-color: rgb(4, 48, 93)">
         <div class="container">
@@ -981,11 +985,9 @@
             <div class="text-center small">&copy; 2025 SK Barangay Mankilam. All rights reserved.</div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="js/script.js" defer></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Optimize video loading
@@ -997,7 +999,6 @@
                     }
                 });
             }, { threshold: 0.1 });
-
             videos.forEach(video => videoObserver.observe(video));
         });
     </script>
